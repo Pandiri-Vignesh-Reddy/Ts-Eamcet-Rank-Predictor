@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TSEAMCET College Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        // ✅ Branch options
+        const branchOptions = [
+            "AGR", "AI", "AID", "ANE", "AUT", "BME", "CHE", "CIC", "CIV", "CME",
+            "CSB", "CSC", "CSD", "CSE", "CSI", "CSM", "CSN", "CSO", "CST", "CSW",
+            "DRG", "DTD", "ECE", "ECI", "ECM", "EEE", "EIE", "ETM", "FDS", "FPT",
+            "FSP", "INF", "ITE", "MCT", "MEC", "MET", "MIN", "MMS", "MMT", "MTE",
+            "PHE", "PLG", "TEX"
+        ];
+
+        // ✅ Caste & Gender options
+        const casteOptions = [
+            "OC BOYS", "OC GIRLS", "BC_A BOYS", "BC_A GIRLS", "BC_B BOYS", "BC_B GIRLS",
+            "BC_C BOYS", "BC_C GIRLS", "BC_D BOYS", "BC_D GIRLS", "BC_E BOYS", "BC_E GIRLS",
+            "SC BOYS", "SC GIRLS", "ST BOYS", "ST GIRLS", "EWS GEN OU", "EWS GIRLS OU"
+        ];
+
+        // ✅ Populate dropdowns dynamically
+        function loadOptions() {
+            const casteSelect = document.getElementById("caste");
+            const branchSelect = document.getElementById("branch");
+
+            casteOptions.forEach(caste => {
+                let option = document.createElement("option");
+                option.value = caste;
+                option.textContent = caste;
+                casteSelect.appendChild(option);
+            });
+
+            branchOptions.forEach(branch => {
+                let option = document.createElement("option");
+                option.value = branch;
+                option.textContent = branch;
+                branchSelect.appendChild(option);
+            });
+        }
+
+        window.onload = loadOptions;
+    </script>
+</head>
+<body>
+    <h2>TSEAMCET Rank vs College Predictor</h2>
+    <form method="POST" action="/predict">
+        <label>Rank:</label>
+        <input type="number" name="rank" required><br><br>
+
+        <label>Caste & Gender:</label>
+        <select id="caste" name="caste" required></select><br><br>
+
+        <label>Branch:</label>
+        <select id="branch" name="branch" required></select><br><br>
+
+        <button type="submit">Predict Colleges</button>
+    </form>
+</body>
+</html>

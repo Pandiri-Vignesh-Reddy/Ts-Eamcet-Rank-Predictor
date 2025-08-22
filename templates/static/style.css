@@ -1,0 +1,122 @@
+/* General page style */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9fafb;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Headings */
+h2, h3 {
+    text-align: center;
+    color: #1e3a8a;
+}
+
+/* Form container */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Form labels & inputs */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Submit button */
+button {
+    background: #2563eb;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1e40af;
+}
+
+/* Table */
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    width: 90%;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background: #2563eb;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background: #f3f4f6;
+}
+
+/* Ordered list of top colleges */
+ol {
+    max-width: 600px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+ol li {
+    margin: 8px 0;
+    font-weight: 500;
+}
+
+/* Chart */
+canvas {
+    display: block;
+    margin: 30px auto;
+    max-width: 900px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Back link */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #2563eb;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

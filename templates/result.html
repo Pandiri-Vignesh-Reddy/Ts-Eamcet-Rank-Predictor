@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>Prediction Results</h2>
+    <p><b>Rank:</b> {{ rank }} | <b>Caste:</b> {{ caste }} | <b>Branch:</b> {{ branch }}</p>
+
+    <h3>Eligible Colleges</h3>
+    {{ df | safe }}
+
+    <h3>Graph View (Top Colleges by Cutoff Rank)</h3>
+    <canvas id="collegeChart" width="800" height="400"></canvas>
+
+    <script>
+        // ✅ Extract table data dynamically for Chart.js
+        const table = document.querySelector("table");
+        const labels = [];
+        const values = [];
+
+        if (table) {
+            for (let i = 1; i < table.rows.length; i++) { // skip header
+                labels.push(table.rows[i].cells[0].innerText);  // College name
+                values.push(parseInt(table.rows[i].cells[1].innerText)); // Cutoff rank
+            }
+        }
+
+        const ctx = document.getElementById("collegeChart").getContext("2d");
+        new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "Cutoff Rank",
+                    data: values,
+                    backgroundColor: "rgba(75, 192, 192, 0.6)"
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: "Top Eligible Colleges (Cutoff Ranks)"
+                    }
+                },
+                scales: {
+                    x: { ticks: { autoSkip: false, maxRotation: 90, minRotation: 60 } },
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    </script>
+
+    <br>
+    <a href="/">🔙 Back</a>
+</body>
+</html>
